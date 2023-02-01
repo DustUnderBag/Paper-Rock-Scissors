@@ -46,6 +46,10 @@ function playRound(playerSelection, computerSelection) {
   }else if(computerSelection === scissors && playerSelection === paper){
     result = "lose";
   }
- 
+   
+  if(result === "tie") console.log(tieMessage);
+  else if(result === "win") console.log(winMessage);
+  else console.log(loseMessage);
+  
   return result;
 }
