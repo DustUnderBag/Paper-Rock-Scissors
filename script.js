@@ -25,4 +25,13 @@ function getPlayerSelection(playerInput) {
 
 function playRound(playerSelection, computerSelection) {
   console.log(`You picked ${playerSelection}, Computer picked ${computerSelection}.`);
+
+  let result;
+  let winMessage = `You win! ${playerSelection} beats ${computerSelection}.`;
+  let loseMessage = `You lose! ${computerSelection} beats ${playerSelection}.`;
+  let tieMessage = `Tie! You both picked ${playerSelection}.`;
+
+ 
+  
+  return result;
 }
