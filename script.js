@@ -31,7 +31,21 @@ function playRound(playerSelection, computerSelection) {
   let loseMessage = `You lose! ${computerSelection} beats ${playerSelection}.`;
   let tieMessage = `Tie! You both picked ${playerSelection}.`;
 
+  if (computerSelection === playerSelection) {
+    result = "tie";
+  }else if (computerSelection === rock && playerSelection === paper) {
+    result = "win";
+  }else if (computerSelection === rock && playerSelection === scissors) {
+    result = "lose";
+  }else if (computerSelection === paper && playerSelection === rock) {
+    result = "lose";
+  }else if (computerSelection === paper && playerSelection === scissors) {
+    result = "win";
+  }else if (computerSelection === scissors && playerSelection === rock) {
+    result = "win";
+  }else if(computerSelection === scissors && playerSelection === paper){
+    result = "lose";
+  }
  
-  
   return result;
 }
