@@ -22,3 +22,7 @@ function getPlayerSelection(playerInput) {
     getPlayerSelection();
   }
 }
+
+function playRound(playerSelection, computerSelection) {
+  console.log(`You picked ${playerSelection}, Computer picked ${computerSelection}.`);
+}
