@@ -55,7 +55,26 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  console.log(playRound(getPlayerSelection(), getComputerSelection()));
+  let computerScore = 0;
+  let playerScore = 0;
+
+  for(let i = 0; i < 5; i++){
+    let roundNum = i+1;
+    console.log("Round: " + roundNum);
+
+    let result = playRound(getPlayerSelection(), getComputerSelection());
+    switch (result) {
+      case "win":
+        playerScore++;
+        break;
+      case "lose":
+        computerScore++;
+        break;
+    }
+    console.log("You scored: " + playerScore);
+    console.log("Computer scored: " + computerScore);
+
+  }
 
 }
 
