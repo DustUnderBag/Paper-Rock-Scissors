@@ -1,7 +1,9 @@
+//assign string values to choices.
 const rock = "rock";
 const paper = "paper";
 const scissors = "scissors";
 
+//Generate random selection for computer.
 function getComputerSelection() {
   const choiceId = Math.random();
   if(choiceId < 0.33) return rock;
@@ -9,6 +11,7 @@ function getComputerSelection() {
   else return scissors;
 }
 
+//Get input from the user.
 function getPlayerSelection(playerInput) {
   playerInput = prompt("Enter rock/paper/scissors to play against me!");
   playerInput = playerInput.toLowerCase();
@@ -18,7 +21,7 @@ function getPlayerSelection(playerInput) {
    playerInput === scissors) {
    return playerInput; 
   }else {
-    console.log(`Invalid input`);
+    console.log(`Invalid input, please check spelling.`);
     getPlayerSelection();
   }
 }
@@ -62,7 +65,10 @@ function game() {
     let roundNum = i+1;
     console.log("Round: " + roundNum);
 
+    //get win/lose/tie result from playRound().
     let result = playRound(getPlayerSelection(), getComputerSelection());
+
+    //Score 1 mark if win, else computer scores 1 mark.
     switch (result) {
       case "win":
         playerScore++;
@@ -73,7 +79,6 @@ function game() {
     }
     console.log("You scored: " + playerScore);
     console.log("Computer scored: " + computerScore);
-
   }
 
 }
