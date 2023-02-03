@@ -53,3 +53,10 @@ function playRound(playerSelection, computerSelection) {
   
   return result;
 }
+
+function game() {
+  console.log(playRound(getPlayerSelection(), getComputerSelection()));
+
+}
+
+game();
