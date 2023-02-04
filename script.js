@@ -12,19 +12,23 @@ function getComputerSelection() {
 }
 
 //Get input from the user.
-function getPlayerSelection(playerInput) {
-  playerInput = prompt("Enter rock/paper/scissors to play against me!");
-  playerInput = playerInput.toLowerCase();
-  
-  if(playerInput === rock ||
-   playerInput === paper ||
-   playerInput === scissors) {
-   return playerInput; 
-  }else {
-    console.log(`Invalid input, please check spelling.`);
-    getPlayerSelection();
+function getPlayerSelection() {
+  let checkValidInput = false; // Check if player's input is valid.
+  while(checkValidInput === false) {
+    //Ask for player's input then convert to lowerCase.
+    let playerInput = (prompt("Enter rock/paper/scissors to play against me!")).toLowerCase();
+
+    checkValidInput = (playerInput === rock || playerInput === paper || playerInput === scissors); //Check if player's input is valid.
+    if(checkValidInput) {
+      return playerInput;
+    }else {
+      console.log(`Invalid input, please check spelling.`);
+      checkValidInput = false; //Repeat asking for input if input is invalid.
+    }
   }
+  
 }
+
 
 function playRound(playerSelection, computerSelection) {
   console.log(`You picked ${playerSelection}, Computer picked ${computerSelection}.`);
@@ -82,5 +86,4 @@ function game() {
   }
 
 }
-
 game();
