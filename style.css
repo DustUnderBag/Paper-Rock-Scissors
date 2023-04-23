@@ -1,0 +1,43 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.container{
+    margin:20px auto;
+    border: black 2px solid;
+    padding: 10px;
+    border-radius: 0.5rem;
+    width: 300px;
+    height: auto;
+}
+
+.buttons{
+    display: flex;
+    flex: 0;
+}
+
+.button{
+    margin:4px;
+    border:black 1px solid;
+    padding:5px;
+    border-radius: .5rem;
+    text-align: center;
+    flex:content;
+    transition: all 0.2s ease;
+
+    display: flex;
+    flex-direction: column;
+}
+
+img{
+    width: auto;
+    height:100px;
+}
+.effect{
+    transform: scale(1.2);
+    border:black 5px dotted;
+    box-shadow: 0 0 1rem #ffc600;
+}

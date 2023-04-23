@@ -1,7 +1,39 @@
-//assign string values to choices.
-const rock = "rock";
-const paper = "paper";
-const scissors = "scissors";
+let rock = 'rock';
+let paper = 'paper';
+let scissors = 'scissors';
+
+let playerScore = 0;
+let computerScore = 0;
+
+const resultWindow = document.querySelector('.result');
+const scoreWindow = document.querySelector('.score');
+
+const rockButton = document.querySelector('#rock');
+const paperButton = document.querySelector('#paper');
+const scissorsButton = document.querySelector('#scissors');
+
+const buttons = [rockButton,paperButton,scissorsButton]; //create array containing all three buttons.
+
+buttons.forEach(button => {
+  button.addEventListener('click', e => {
+    playRound(getPlayerSelection(e), getComputerSelection());
+    
+});
+
+  button.addEventListener('mouseover', addTransition, {capture:true});
+  button.addEventListener('mouseout', removeTransition);
+});
+
+
+function addTransition(e){
+  console.log(e.target);
+  e.target.classList.add('effect');
+
+}
+
+function removeTransition(e){
+  e.target.classList.remove('effect');
+}
 
 //Generate random selection for computer.
 function getComputerSelection() {
@@ -12,32 +44,12 @@ function getComputerSelection() {
 }
 
 //Get input from the user.
-function getPlayerSelection() {
-  let checkValidInput = false; // Check if player's input is valid.
-  while(checkValidInput === false) {
-    //Ask for player's input then convert to lowerCase.
-    let playerInput = (prompt("Enter rock/paper/scissors to play against me!")).toLowerCase();
-
-    checkValidInput = (playerInput === rock || playerInput === paper || playerInput === scissors); //Check if player's input is valid.
-    if(checkValidInput) {
-      return playerInput;
-    }else {
-      console.log(`Invalid input, please check spelling.`);
-      checkValidInput = false; //Repeat asking for input if input is invalid.
-    }
-  }
-  
+function getPlayerSelection(e) {
+  return e.target.getAttribute('id');
 }
 
-
 function playRound(playerSelection, computerSelection) {
-  console.log(`You picked ${playerSelection}, Computer picked ${computerSelection}.`);
-
-  let result;
-  let winMessage = `You win! ${playerSelection} beats ${computerSelection}.`;
-  let loseMessage = `You lose! ${computerSelection} beats ${playerSelection}.`;
-  let tieMessage = `Tie! You both picked ${playerSelection}.`;
-
+  let result = "";
   if (computerSelection === playerSelection) {
     result = "tie";
   }else if (computerSelection === rock && playerSelection === paper) {
@@ -54,36 +66,20 @@ function playRound(playerSelection, computerSelection) {
     result = "lose";
   }
    
-  if(result === "tie") console.log(tieMessage);
-  else if(result === "win") console.log(winMessage);
-  else console.log(loseMessage);
-  
-  return result;
-}
+  let message = `You picked ${playerSelection}, the computer picked ${computerSelection}...`
+  switch(result) {
+    case 'win':
+      playerScore++;
+      message += `You win! ${playerSelection} beats ${computerSelection}.`;
+      break;
 
-function game() {
-  let computerScore = 0;
-  let playerScore = 0;
-
-  for(let i = 0; i < 5; i++){
-    let roundNum = i+1;
-    console.log("Round: " + roundNum);
-
-    //get win/lose/tie result from playRound().
-    let result = playRound(getPlayerSelection(), getComputerSelection());
-
-    //Score 1 mark if win, else computer scores 1 mark.
-    switch (result) {
-      case "win":
-        playerScore++;
-        break;
-      case "lose":
-        computerScore++;
-        break;
-    }
-    console.log("You scored: " + playerScore);
-    console.log("Computer scored: " + computerScore);
+    case 'lose':
+      computerScore++;
+      message += `You lose! ${computerSelection} beats ${playerSelection}.`;
+      break;
+    default:
+      message += `Tie! You both picked ${playerSelection}.`;
   }
-
+  resultWindow.textContent = message;
+  scoreWindow.textContent = `You: ${playerScore}       Computer's point: ${computerScore}`
 }
-game();

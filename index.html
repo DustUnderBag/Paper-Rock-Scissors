@@ -6,11 +6,39 @@
         <meta name="viewport" content="width=device-width">
         <title>Paper Rock Scissors</title>
         <link href="./style.css" rel="styleSheet">
-        <script src="./script.js"></script>
+        <script src="./script.js" defer></script>
     </head>
 
     <body>
-        <h1> Paper Rock Scissors Game</h1>
+        <h1>You versus Machine</h1>
+      
+        <div class="container">
+            <h2>Choose your weapon!</h2>
+
+            <div class="buttons">
+                <div class="button" id="rock">
+                    <span>Rock</span>
+                    <img src="./img/rock.svg">
+                </div>
+                <div class="button" id="paper">
+                    <span>Paper</span>
+                    <img src="./img/paper.svg">
+                </div>
+                <div class="button" id="scissors">
+                    <span>Scissors</span>
+                    <img src="./img/scissors.svg">
+                </div>
+            </div>
+        </div>
+        
+        <div class="score"></div>
+
+        <div class="container computer">
+            <h2>Computer chose...</h2>
+            <img src="./img/question-mark.svg">
+        </div>
+
+        <div class="result"></div> 
 
     </body>
 
