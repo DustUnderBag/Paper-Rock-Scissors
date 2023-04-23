@@ -5,8 +5,13 @@ let scissors = 'scissors';
 let playerScore = 0;
 let computerScore = 0;
 
+let playerSelection = "";
+let computerSelection = "";
+
 const resultWindow = document.querySelector('.result');
 const scoreWindow = document.querySelector('.score');
+const computerWindow = document.querySelector('.computer');
+const questionMark = document.querySelector('img.question-mark');
 
 const rockButton = document.querySelector('#rock');
 const paperButton = document.querySelector('#paper');
@@ -14,10 +19,17 @@ const scissorsButton = document.querySelector('#scissors');
 
 const buttons = [rockButton,paperButton,scissorsButton]; //create array containing all three buttons.
 
+const computerSign = document.createElement('h3');
+computerSign.textContent = '?';
+computerSign.style.fontSize = '4em';
+computerWindow.appendChild(computerSign);
+
 buttons.forEach(button => {
   button.addEventListener('click', e => {
-    playRound(getPlayerSelection(e), getComputerSelection());
-    
+    playerSelection = getPlayerSelection(e);
+    computerSelection = getComputerSelection();
+    playRound(playerSelection, computerSelection);
+    computerSign.textContent = computerSelection;
 });
 
   button.addEventListener('mouseover', addTransition, {capture:true});
@@ -26,9 +38,7 @@ buttons.forEach(button => {
 
 
 function addTransition(e){
-  console.log(e.target);
   e.target.classList.add('effect');
-
 }
 
 function removeTransition(e){
@@ -38,9 +48,11 @@ function removeTransition(e){
 //Generate random selection for computer.
 function getComputerSelection() {
   const choiceId = Math.random();
-  if(choiceId < 0.33) return rock;
-  else if(choiceId > 0.33 && choiceId < 0.66) return paper;
-  else return scissors;
+  if(choiceId < 0.33) computerSelection = rock;
+  else if(choiceId > 0.33 && choiceId < 0.66) computerSelection = paper;
+  else computerSelection = scissors;
+
+  return computerSelection;
 }
 
 //Get input from the user.
@@ -81,5 +93,5 @@ function playRound(playerSelection, computerSelection) {
       message += `Tie! You both picked ${playerSelection}.`;
   }
   resultWindow.textContent = message;
-  scoreWindow.textContent = `You: ${playerScore}       Computer's point: ${computerScore}`
+  scoreWindow.textContent = `You: ${playerScore}       Computer's point: ${computerScore}`;
 }

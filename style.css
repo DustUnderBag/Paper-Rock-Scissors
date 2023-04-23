@@ -36,6 +36,7 @@ img{
     width: auto;
     height:100px;
 }
+
 .effect{
     transform: scale(1.2);
     border:black 5px dotted;
