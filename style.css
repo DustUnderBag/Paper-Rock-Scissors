@@ -42,3 +42,15 @@ img{
     border:black 5px dotted;
     box-shadow: 0 0 1rem #ffc600;
 }
+
+.restart{
+    display:block;
+    margin: 10px auto;
+    padding: 1rem;
+    border: 0px;
+    background-color: rgb(182, 59, 59);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 2rem;
+}
