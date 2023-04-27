@@ -16,6 +16,7 @@ const computerText = document.querySelector('.computer-text');
 const computerSign = document.querySelector('.computer-sign');
 
 const announce = document.querySelector('div.announce');
+const restartButton = document.createElement('button');
 
 const rockButton = document.querySelector('#rock');
 const paperButton = document.querySelector('#paper');
@@ -28,27 +29,27 @@ buttons.forEach(button => {
     let playerSelection = getPlayerSelection(e);
     let computerSelection = getComputerSelection();
     playRound(playerSelection, computerSelection);
-    console.log("player: " + playerScore, "computer: " + computerScore);
 
+    button.addEventListener('mouseover', addTransition);
+    button.addEventListener('mouseout', removeTransition);
 
-  
-  if(playerScore === 5 || computerScore === 5) {
-    if(playerScore > computerScore) {
-      announce.textContent = "You WIN! Click RESTART to play again.";
-    } else {
-      announce.textContent = "You LOSE! Restart to try again."
+    if(playerScore === 5 || computerScore === 5) {
+      button.removeEventListener('click');
+      if(playerScore > computerScore) {
+        announce.textContent = "You WIN! Click RESTART to play again.";
+      } else {
+        announce.textContent = "You LOSE! Restart to try again."
+      }
+      restartButton.textContent = "RESTART";
+      restartButton.classList.add('restart');
+      announce.appendChild(restartButton);
     }
-    const restartButton = document.createElement('button');
-    restartButton.textContent = "RESTART";
-    restartButton.classList.add('restart');
-    announce.appendChild(restartButton);
-  }
+  })
 
 });
 
-  button.addEventListener('mouseover', addTransition);
-  button.addEventListener('mouseout', removeTransition);
-});
+restartButton.addEventListener('click', restartGame);
+
 
 function addTransition(e){
   e.target.classList.add('effect');
@@ -95,7 +96,7 @@ function playRound(playerSelection, computerSelection) {
     result = "lose";
   }
    
-  let message = `You picked ${playerSelection}, the computer picked ${computerSelection}...`
+  let message = "";
   switch(result) {
     case 'win':
       playerScore++;
@@ -111,4 +112,17 @@ function playRound(playerSelection, computerSelection) {
   }
   resultWindow.textContent = message;
   scoreWindow.textContent = `You: ${playerScore}       Computer's point: ${computerScore}`;
+}
+
+function restartGame(){
+  playerScore = 0;
+  computerScore = 0;
+
+  resultWindow.textContent = "";
+  scoreWindow.textContent = "";
+
+  computerText.textContent = "";
+  computerSign.src = "./img/question-mark.svg";
+
+  announce.textContent = "";
 }
