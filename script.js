@@ -3,12 +3,16 @@ let paper = 'paper';
 let scissors = 'scissors';
 let questionMark = 'question-mark';
 
+let roundNum = 0;
+
 let playerScore = 0;
 let computerScore = 0;
 
 let playerSelection = "";
 let computerSelection = "";
 
+const buttons = document.querySelectorAll(".button");
+const round = document.querySelector(".round");
 const resultWindow = document.querySelector('.result');
 const scoreWindow = document.querySelector('.score');
 
@@ -18,11 +22,6 @@ const computerSign = document.querySelector('.computer-sign');
 const announce = document.querySelector('div.announce');
 const restartButton = document.createElement('button');
 
-const rockButton = document.querySelector('#rock');
-const paperButton = document.querySelector('#paper');
-const scissorsButton = document.querySelector('#scissors');
-
-const buttons = [rockButton,paperButton,scissorsButton]; //create array containing all three buttons.
 
 buttons.forEach(button => {
   button.addEventListener('click', e => {
@@ -30,26 +29,16 @@ buttons.forEach(button => {
     let computerSelection = getComputerSelection();
     playRound(playerSelection, computerSelection);
 
-    button.addEventListener('mouseover', addTransition);
-    button.addEventListener('mouseout', removeTransition);
+    countRound();
+  });
 
-    if(playerScore === 5 || computerScore === 5) {
-      button.removeEventListener('click');
-      if(playerScore > computerScore) {
-        announce.textContent = "You WIN! Click RESTART to play again.";
-      } else {
-        announce.textContent = "You LOSE! Restart to try again."
-      }
-      restartButton.textContent = "RESTART";
-      restartButton.classList.add('restart');
-      announce.appendChild(restartButton);
-    }
-  })
+  button.addEventListener('mouseover', addTransition);
+  button.addEventListener('mouseout', removeTransition);
 
+  if(playerScore == 5 || computerScore ==5) {
+    button.removeEventListener('click');
+  }
 });
-
-restartButton.addEventListener('click', restartGame);
-
 
 function addTransition(e){
   e.target.classList.add('effect');
@@ -114,9 +103,30 @@ function playRound(playerSelection, computerSelection) {
   scoreWindow.textContent = `You: ${playerScore}       Computer's point: ${computerScore}`;
 }
 
+function countRound(){
+  roundNum++;
+  round.textContent = `Round: ${roundNum}`;
+
+  if (playerScore === 5 || computerScore === 5) {
+    if (playerScore > computerScore) {
+      announce.textContent = "You WIN! Click RESTART to play again.";
+    } else {
+      announce.textContent = "You LOSE! Restart to try again.";
+    }
+    restartButton.textContent = "RESTART";
+    restartButton.classList.add("restart");
+    announce.appendChild(restartButton);
+
+    restartButton.addEventListener('click', restartGame);
+  }
+}
+
 function restartGame(){
   playerScore = 0;
   computerScore = 0;
+
+  roundNum = 0;
+  round.textContent = "Round: 0";
 
   resultWindow.textContent = "";
   scoreWindow.textContent = "";
