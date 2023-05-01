@@ -23,21 +23,25 @@ const announce = document.querySelector('div.announce');
 const restartButton = document.createElement('button');
 
 
+
 buttons.forEach(button => {
-  button.addEventListener('click', e => {
-    let playerSelection = getPlayerSelection(e);
-    let computerSelection = getComputerSelection();
-    playRound(playerSelection, computerSelection);
+  button.addEventListener("click", (e) => {
+      roundNum++;
+      round.textContent = `Round: ${roundNum}`;
 
-    countRound();
-  });
+      let playerSelection = getPlayerSelection(e);
+      let computerSelection = getComputerSelection();
+      playRound(playerSelection, computerSelection);
 
+      if(playerScore >= 5 || computerScore >= 5) {
+        console.log("END");
+        announceWinner();
+        return;
+      }
+    });
+ 
   button.addEventListener('mouseover', addTransition);
   button.addEventListener('mouseout', removeTransition);
-
-  if(playerScore == 5 || computerScore ==5) {
-    button.removeEventListener('click');
-  }
 });
 
 function addTransition(e){
@@ -103,23 +107,21 @@ function playRound(playerSelection, computerSelection) {
   scoreWindow.textContent = `You: ${playerScore}       Computer's point: ${computerScore}`;
 }
 
-function countRound(){
-  roundNum++;
-  round.textContent = `Round: ${roundNum}`;
+function announceWinner() {
+  if (playerScore > computerScore) {
+    announce.textContent = "You WIN! Click RESTART to play again.";
+  } else {
+    announce.textContent = "You LOSE! Restart to try again.";
+  }
 
-  if (playerScore === 5 || computerScore === 5) {
-    if (playerScore > computerScore) {
-      announce.textContent = "You WIN! Click RESTART to play again.";
-    } else {
-      announce.textContent = "You LOSE! Restart to try again.";
-    }
+    //Create Restart button
     restartButton.textContent = "RESTART";
     restartButton.classList.add("restart");
     announce.appendChild(restartButton);
+    restartButton.addEventListener("click", restartGame);
 
-    restartButton.addEventListener('click', restartGame);
-  }
 }
+
 
 function restartGame(){
   playerScore = 0;
