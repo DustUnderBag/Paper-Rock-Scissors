@@ -1,49 +1,58 @@
 body{
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+h1,
+p {
     text-align: center;
-    box-sizing: border-box;
 }
 
 .container{
-    margin:20px auto;
-    border: black 2px solid;
-    padding: 10px;
-    border-radius: 0.5rem;
-    width: 300px;
+    margin: 20px auto;
+    border: 3px black solid;
+    border-radius: 2rem;
+    padding: 1.5rem 1rem;
+
+    width: 35vh;
+    height: auto;
+    flex: 0 1 auto;
+
+    text-align: center;
+}
+
+img.icon{
+    width: 20%;
     height: auto;
 }
 
 .button-wrapper{
-    margin:5px auto;
+    margin: 1rem auto;
+    border: 2px grey solid;
+    border-radius: 1rem;
+    padding: 1rem 0;
+    width: 90%;
+
     display: flex;
-    flex: 0;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .button{
-    margin:4px;
-    border:black 1px solid;
-    padding: 0;
 
-    border-radius: .5rem;
-    text-align: center;
-    flex:content;
-    transition: all 0.2s ease;
-
-    display: flex;
-    flex-direction: column;
-}
-
-img{
-    width: auto;
-    height:100px;
 }
 
 .effect{
     transform: scale(1.2);
     border:black 5px dotted;
     box-shadow: 0 0 1rem #ffc600;
+}
+
+img.player-sign,
+img.computer-sign {
+    height:100px;
 }
 
 .restart{
