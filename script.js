@@ -22,27 +22,30 @@ const computerSign = document.querySelector('.computer-sign');
 const announce = document.querySelector('div.announce');
 const restartButton = document.createElement('button');
 
-
-
 buttons.forEach(button => {
-  button.addEventListener("click", (e) => {
-      roundNum++;
-      round.textContent = `Round: ${roundNum}`;
+    button.addEventListener("click", e => clickHandler(e));
 
-      let playerSelection = getPlayerSelection(e);
-      let computerSelection = getComputerSelection();
-      playRound(playerSelection, computerSelection);
 
-      if(playerScore >= 5 || computerScore >= 5) {
-        console.log("END");
-        announceWinner();
-        return;
-      }
-    });
- 
   button.addEventListener('mouseover', addTransition);
   button.addEventListener('mouseout', removeTransition);
 });
+
+function clickHandler(e) {
+  if(isGameOver() ) {
+    return;
+  }
+  roundNum++;
+  round.textContent = `Round: ${roundNum}`;
+
+  let playerSelection = getPlayerSelection(e);
+  let computerSelection = getComputerSelection();
+  playRound(playerSelection, computerSelection);
+
+  if(isGameOver() ) {
+    announceWinner();
+  }
+
+}
 
 function addTransition(e){
   e.target.classList.add('effect');
@@ -107,12 +110,14 @@ function playRound(playerSelection, computerSelection) {
   scoreWindow.textContent = `You: ${playerScore}       Computer's point: ${computerScore}`;
 }
 
+function isGameOver() {
+  return playerScore === 5 || computerScore === 5;
+}
+
 function announceWinner() {
-  if (playerScore > computerScore) {
-    announce.textContent = "You WIN! Click RESTART to play again.";
-  } else {
-    announce.textContent = "You LOSE! Restart to try again.";
-  }
+  (playerScore > computerScore)
+    ? announce.textContent = "You WIN! Click RESTART to play again."
+    : announce.textContent = "You LOSE! Restart to try again.";
 
     //Create Restart button
     restartButton.textContent = "RESTART";
