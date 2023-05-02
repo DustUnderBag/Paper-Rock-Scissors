@@ -123,8 +123,8 @@ function isGameOver() {
 
 function announceWinner() {
   (playerScore > computerScore)
-    ? announce.textContent = "You WIN! Click RESTART to play again."
-    : announce.textContent = "You LOSE! Restart to try again.";
+    ? announce.textContent = "WIN! You beat the computer."
+    : announce.textContent = "GAME OVER! You LOSE!";
 
     //Create Restart button
     restartButton.textContent = "RESTART";
