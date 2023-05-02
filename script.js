@@ -67,7 +67,7 @@ function getComputerSelection() {
 
   computerSign.src = `./img/${computerSelection}.svg`; //show computer selection by image.
 
-  computerText.textContent = computerSelection;
+  computerText.textContent = capitalizeWord(computerSelection);
 
   return computerSelection;
 }
@@ -96,6 +96,9 @@ function playRound(playerSelection, computerSelection) {
   }
    
   let message = "";
+  playerSelection = capitalizeWord(playerSelection);
+  computerSelection = capitalizeWord(computerSelection);
+
   switch(result) {
     case 'win':
       playerScore++;
@@ -128,7 +131,6 @@ function announceWinner() {
     restartButton.classList.add("restart");
     announce.appendChild(restartButton);
     restartButton.addEventListener("click", restartGame);
-
 }
 
 
@@ -140,10 +142,15 @@ function restartGame(){
   round.textContent = "Round: 0";
 
   resultWindow.textContent = "";
-  scoreBoard.textContent = "";
+  playerScoreBoard.textContent = "";
+  computerScoreBoard.textContent = "";
 
   computerText.textContent = "";
   computerSign.src = "./img/question-mark.svg";
 
   announce.textContent = "";
+}
+
+function capitalizeWord(word){
+  return word.charAt(0).toUpperCase() + word.slice(1,word.length);
 }
