@@ -5,10 +5,15 @@ body{
     align-items: center;
 }
 
-h1,
-p {
+header,
+p{
     text-align: center;
     margin: 0.5rem auto;
+}
+
+header > h2{
+    margin-top: -1rem;
+    font-weight: 200;
 }
 
 .container{
@@ -39,10 +44,6 @@ img.icon{
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
-
-.button{
-
 }
 
 .effect{

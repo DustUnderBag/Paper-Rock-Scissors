@@ -9,46 +9,49 @@
     </head>
 
     <body>
-        </div>
-        <h1>You versus Machine</h1>
+        <header>
+            <h1>Rock Paper Scissors</h1>
+            <h2>You Versus Machine</h2>
+        </header>
+
         <p class="round">Round 0</p>
+        <main>
+            <div class="container">
+                <img src="./img/human.svg" alt="human" class="icon">
+                <h2>Choose your weapon!</h2>
 
-        <div class="container">
-
-            <img src="./img/human.svg" alt="human" class="icon">
-
-            <h2>Choose your weapon!</h2>
-            <div class="button-wrapper">
-                <div class="button">
-                    <img src="./img/rock.svg" alt="rock" id="rock" class="player-sign"> 
-                </div>
-                <div class="button">
-                    <img src="./img/paper.svg" alt="paper" id="paper" class="player-sign">
-                </div>
-                <div class="button">
-                    <img src="./img/scissors.svg" alt="scissors" id="scissors" class="player-sign">
+                <div class="button-wrapper">
+                    <div class="button">
+                        <img src="./img/rock.svg" alt="rock" id="rock" class="player-sign">
+                    </div>
+                    <div class="button">
+                        <img src="./img/paper.svg" alt="paper" id="paper" class="player-sign">
+                    </div>
+                    <div class="button">
+                        <img src="./img/scissors.svg" alt="scissors" id="scissors" class="player-sign">
+                    </div>
                 </div>
             </div>
-        </div>
         
-        <div class="score"></div>
-
-        <div class="result"></div> 
-
-        <div class="container computer">
-
-            <img src="./img/robot.svg" alt="robot" class="icon">
-            <h2>Computer picks...</h2>
-            <div>
-                <p class="computer-text"></p>
-                <img src="./img/question-mark.svg" class="computer-sign">
+            <div class="score"></div>
+            <div class="result"></div>
+            
+            <div class="container computer">
+                <img src="./img/robot.svg" alt="robot" class="icon">
+                <h2>Computer picks...</h2>
+                <div>
+                    <p class="computer-text"></p>
+                    <img src="./img/question-mark.svg" class="computer-sign">
+                </div>
             </div>
-        </div>
+        </main>
 
         <div class="announce"></div>
 
-        <script src="./script.js"r></script>
 
+
+
+        <script src="./script.js"r></script>
     </body>
 
 
