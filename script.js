@@ -14,7 +14,10 @@ let computerSelection = "";
 const buttons = document.querySelectorAll(".button");
 const round = document.querySelector(".round");
 const resultWindow = document.querySelector('.result');
-const scoreWindow = document.querySelector('.score');
+
+const playerScoreBoard = document.querySelector('.player-score');
+const computerScoreBoard = document.querySelector('.computer-score');
+
 
 const computerText = document.querySelector('.computer-text');
 const computerSign = document.querySelector('.computer-sign');
@@ -107,7 +110,8 @@ function playRound(playerSelection, computerSelection) {
       message += `Tie! You both picked ${playerSelection}.`;
   }
   resultWindow.textContent = message;
-  scoreWindow.textContent = `You: ${playerScore}       Computer's point: ${computerScore}`;
+  playerScoreBoard.textContent = `Score: ${playerScore}`;
+  computerScoreBoard.textContent = `Score: ${computerScore}`;
 }
 
 function isGameOver() {
@@ -136,7 +140,7 @@ function restartGame(){
   round.textContent = "Round: 0";
 
   resultWindow.textContent = "";
-  scoreWindow.textContent = "";
+  scoreBoard.textContent = "";
 
   computerText.textContent = "";
   computerSign.src = "./img/question-mark.svg";
