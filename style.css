@@ -1,8 +1,6 @@
 body{
+    font-family: 'Roboto', 'Roboto Slab', serif, sans-serif;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 header,
@@ -16,11 +14,17 @@ header > h2{
     font-weight: 200;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .container{
     margin: 20px auto;
     border: 3px black solid;
     border-radius: 2rem;
-    padding: 1.5rem 1rem;
+    padding: 2rem 3rem;
 
     width: 35vh;
     height: auto;
@@ -57,9 +61,21 @@ img.computer-sign {
     height:100px;
 }
 
+.announce-modal{
+    border: 0;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0px 0px 5px 3px rgb(0,0,0, 0.1);
+}
+
+.announce-modal::backdrop {
+    background: rgb(64, 64, 64);
+}
+
 .restart{
     display:block;
     margin: 10px auto;
+    margin-top: 20px;
     padding: 1rem;
     border: 0px;
     background-color: rgb(182, 59, 59);
