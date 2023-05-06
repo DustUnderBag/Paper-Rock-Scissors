@@ -22,7 +22,7 @@ computerScoreBoard.textContent = "Score: 0";
 
 const computerSign = document.querySelector('.computer-sign');
 
-const announce = document.querySelector('.announce-modal');
+const announce = document.querySelector('.announce');
 const restartButton = document.createElement('button');
 
 buttons.forEach(button => {
@@ -128,9 +128,6 @@ function announceWinner() {
     restartButton.classList.add("restart");
     announce.appendChild(restartButton);
     restartButton.addEventListener("click", restartGame);
-
-    //open announce modal
-    announce.showModal();
 }
 
 
@@ -147,8 +144,7 @@ function restartGame(){
 
   computerSign.src = "./img/question-mark.svg";
 
-    //Close announce modal
-  announce.close(); 
+  announce.innerHTML = "";
 }
 
 function capitalizeWord(word){
