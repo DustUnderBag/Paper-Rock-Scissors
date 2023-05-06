@@ -82,7 +82,8 @@ img.computer-sign {
 }
 
 .announce-modal::backdrop {
-    background: rgb(64, 64, 64);
+    background: rgb(64, 64, 64, 0.3);
+    backdrop-filter: blur(5px);
 }
 
 .restart {

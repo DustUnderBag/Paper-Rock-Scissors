@@ -26,7 +26,7 @@ const announce = document.querySelector('.announce-modal');
 const restartButton = document.createElement('button');
 
 buttons.forEach(button => {
-    button.addEventListener("click", e => clickHandler(e));
+  button.addEventListener("click", e => clickHandler(e));
 
 
   button.addEventListener('mouseover', addTransition);
@@ -73,6 +73,7 @@ function getComputerSelection() {
 
 //Get input from the user.
 function getPlayerSelection(e) {
+
   return e.target.getAttribute('id');
 }
 
