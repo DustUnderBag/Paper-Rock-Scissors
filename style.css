@@ -1,11 +1,11 @@
-body {
+html, body {
     margin:0px;
     font-family: 'Roboto', 'Roboto Slab', serif, sans-serif;
     box-sizing: border-box;
-
 }
 
-*{
+
+* { 
     text-align: center;
 }
 
@@ -105,13 +105,4 @@ img.computer-sign {
     font-weight: bold;
     font-size: 1rem;
     border-radius: 2rem;
-}
-
-footer {
-    position: fixed;
-    bottom: 0%;
-    width: 100%;
-    text-align: center;
-    color: white;
-    background-color: rgb(35, 33, 42);
 }
