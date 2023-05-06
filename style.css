@@ -67,8 +67,6 @@ h2.call {
 
 .effect {
     transform: scale(1.2);
-    border:black 5px dotted;
-    box-shadow: 0 0 1rem #ffc600;
 }
 
 img.player-sign,
