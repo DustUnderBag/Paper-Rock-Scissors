@@ -1,13 +1,8 @@
 body {
-    margin:0px;
+    margin: 0px;
     font-family: 'Roboto', 'Roboto Slab', serif, sans-serif;
     box-sizing: border-box;
-}
-
-
-* { 
     text-align: center;
-    width: 100%;
 }
 
 header {
@@ -19,12 +14,8 @@ header > h2 {
     font-weight: 200;
 }
 
-.round {
+p {
     margin-bottom: -4px;
-}
-
-.result {
-    margin-bottom: -3px;
     height: 20px;
     font-size: 1rem;
 }
@@ -41,16 +32,15 @@ main {
     border-radius: 2rem;
     padding: 1rem 3rem;
 
-    width: 40vh;
+    max-width: 450px;
+    min-width: 320px;
     height: auto;
     flex: 0 1 auto;
 
-    text-align: center;
 }
 
 img.icon {
     width: 20%;
-    height: auto;
 }
 
 h2.call {
@@ -80,7 +70,6 @@ img.computer-sign {
 
 img.computer-sign {
     margin: 1rem auto;
-
 }
 
 .restart {

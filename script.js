@@ -42,6 +42,7 @@ function clickHandler(e) {
 
   let playerSelection = getPlayerSelection(e);
   let computerSelection = getComputerSelection();
+  console.log("Player: " + playerSelection, "Computer: " + computerSelection);
   playRound(playerSelection, computerSelection);
 
   if(isGameOver() ) {
@@ -65,6 +66,7 @@ function getComputerSelection() {
   else computerSelection = scissors;
 
   computerSign.src = `./img/${computerSelection}.svg`; //show computer selection by image.
+  computerSign.alt = computerSelection;
   return computerSelection;
 }
 
@@ -143,6 +145,7 @@ function restartGame(){
   computerScoreBoard.textContent = "Score: 0";
 
   computerSign.src = "./img/question-mark.svg";
+  computerSign.alt = questionMark;
 
   announce.innerHTML = "";
 }
