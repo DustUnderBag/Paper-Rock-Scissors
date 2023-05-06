@@ -1,17 +1,28 @@
-body{
+body {
+    margin:0px;
     font-family: 'Roboto', 'Roboto Slab', serif, sans-serif;
     box-sizing: border-box;
 }
 
-header,
-p{
+*{
     text-align: center;
+}
+
+header {
     margin: 0.5rem auto;
 }
 
-header > h2{
+header > h2 {
     margin-top: -1rem;
     font-weight: 200;
+}
+
+.round {
+    margin-bottom: -4px;
+}
+
+.result {
+    margin-bottom: 3px;
 }
 
 main {
@@ -21,36 +32,40 @@ main {
 }
 
 .container{
-    margin: 20px auto;
+    margin: 10px auto;
     border: 3px black solid;
     border-radius: 2rem;
-    padding: 2rem 3rem;
+    padding: 1rem 3rem;
 
-    width: 35vh;
+    width: 40vh;
     height: auto;
     flex: 0 1 auto;
 
     text-align: center;
 }
 
-img.icon{
+img.icon {
     width: 20%;
     height: auto;
 }
 
-.button-wrapper{
+h2.call {
+    margin: 5px;
+}
+
+.button-wrapper {
     margin: 1rem auto;
     border: 2px grey solid;
     border-radius: 1rem;
     padding: 1rem 0;
-    width: 90%;
+    width: 100%;
 
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.effect{
+.effect {
     transform: scale(1.2);
     border:black 5px dotted;
     box-shadow: 0 0 1rem #ffc600;
@@ -61,7 +76,7 @@ img.computer-sign {
     height:100px;
 }
 
-.announce-modal{
+.announce-modal {
     border: 0;
     border-radius: 10px;
     padding: 2rem;
@@ -72,7 +87,7 @@ img.computer-sign {
     background: rgb(64, 64, 64);
 }
 
-.restart{
+.restart {
     display:block;
     margin: 10px auto;
     margin-top: 20px;
@@ -83,4 +98,12 @@ img.computer-sign {
     font-weight: bold;
     font-size: 1rem;
     border-radius: 2rem;
+}
+
+footer {
+    margin: 20px 0px 0px 0px;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    background-color: rgb(35, 33, 42);
 }
