@@ -17,9 +17,9 @@ const resultWindow = document.querySelector('.result');
 
 const playerScoreBoard = document.querySelector('.player-score');
 const computerScoreBoard = document.querySelector('.computer-score');
+playerScoreBoard.textContent = "Score: 0";
+computerScoreBoard.textContent = "Score: 0";
 
-
-const computerText = document.querySelector('.computer-text');
 const computerSign = document.querySelector('.computer-sign');
 
 const announce = document.querySelector('.announce-modal');
@@ -65,15 +65,11 @@ function getComputerSelection() {
   else computerSelection = scissors;
 
   computerSign.src = `./img/${computerSelection}.svg`; //show computer selection by image.
-
-  computerText.textContent = capitalizeWord(computerSelection);
-
   return computerSelection;
 }
 
 //Get input from the user.
 function getPlayerSelection(e) {
-
   return e.target.getAttribute('id');
 }
 
@@ -112,6 +108,7 @@ function playRound(playerSelection, computerSelection) {
     default:
       message += `Tie! You both picked ${playerSelection}.`;
   }
+
   resultWindow.textContent = message;
   playerScoreBoard.textContent = `Score: ${playerScore}`;
   computerScoreBoard.textContent = `Score: ${computerScore}`;
@@ -145,10 +142,9 @@ function restartGame(){
   round.textContent = "Round: 0";
 
   resultWindow.textContent = "";
-  playerScoreBoard.textContent = "";
-  computerScoreBoard.textContent = "";
+  playerScoreBoard.textContent = "Score: 0";
+  computerScoreBoard.textContent = "Score: 0";
 
-  computerText.textContent = "";
   computerSign.src = "./img/question-mark.svg";
 
     //Close announce modal
