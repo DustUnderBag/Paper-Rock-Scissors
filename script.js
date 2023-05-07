@@ -26,8 +26,8 @@ const announce = document.querySelector('.announce');
 const restartButton = document.createElement('button');
 
 buttons.forEach(button => {
-  button.addEventListener("click", e => clickHandler(e));
 
+  button.addEventListener("click", e => clickHandler(e));
 
   button.addEventListener('mouseover', addTransition);
   button.addEventListener('mouseout', removeTransition);
@@ -44,13 +44,15 @@ function clickHandler(e) {
   let computerSelection = getComputerSelection();
   console.log("Player: " + playerSelection, "Computer: " + computerSelection);
   playRound(playerSelection, computerSelection);
-
   if(isGameOver() ) {
     announceWinner();
   }
 }
 
 function addTransition(e){
+  if(isGameOver() ) {
+    return;
+  }
   e.target.classList.add('effect');
 }
 
